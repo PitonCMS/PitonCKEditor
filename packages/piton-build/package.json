@@ -1,7 +1,7 @@
 {
-  "name": "@ckeditor/piton-build",
+  "name": "piton-build",
   "version": "1.0.0",
-  "description": "PitonCMS Build: Built on CKEditor 5 classic build.",
+  "description": "PitonCMS CKEditor Build: Built on CKEditor 5 classic build.",
   "main": "./build/ckeditor.js",
   "files": [
     "build"

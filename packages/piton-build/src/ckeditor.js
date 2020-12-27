@@ -1,6 +1,9 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ * PitonCMS (https://github.com/PitonCMS)
+ *
+ * @link      https://github.com/PitonCMS/Piton
+ * @copyright Copyright (c) 2015 - 2020 Wolfgang Moritz
+ * @license   https://github.com/PitonCMS/Piton/blob/master/LICENSE (MIT License)
  */
 
 // The editor creator to use.
@@ -15,7 +18,6 @@ import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
@@ -27,42 +29,9 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 
-
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
-
-class PitonInsertImage extends Plugin {
-    init() {
-        const editor = this.editor;
-
-        editor.ui.componentFactory.add('pitonInsertImage', locale => {
-            const view = new ButtonView(locale);
-
-            view.set({
-                label: 'Select image',
-                icon: imageIcon,
-                tooltip: true
-            });
-
-            // Callback executed once the image is clicked.
-            view.on('execute', () => {
-				const imageURL = prompt('Image URL');
-
-				editor.model.change(writer => {
-                    const imageElement = writer.createElement('image', {
-                        src: imageURL
-                    });
-
-                    // Insert the image in the current selection location.
-                    editor.model.insertContent(imageElement, editor.model.document.selection);
-                });
-            });
-
-            return view;
-        });
-    }
-}
+// Custom Piton Plugins
+import PitonSelectMedia from './modules/pitonSelectMedia';
+// import PitonInsertMedia from './modules/PitonInsertMedia';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -77,9 +46,6 @@ ClassicEditor.builtinPlugins = [
 	Heading,
 	Image,
 	ImageCaption,
-	// ImageInsert,
-	// ImageStyle,
-	// ImageToolbar,
 	Indent,
 	Link,
 	List,
@@ -90,14 +56,14 @@ ClassicEditor.builtinPlugins = [
 	TextTransformation,
 	HorizontalLine,
 	CodeBlock,
-	PitonInsertImage,
+	PitonSelectMedia,
+	// PitonInsertMedia,
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			// Piton custom build
 			'heading',
 			'|',
 			'bold',
@@ -111,8 +77,8 @@ ClassicEditor.defaultConfig = {
 			// 'outdent',
 			// '|',
 			'link',
-			'pitonInsertImage',
-			// 'imageInsert',
+			'pitonSelectMedia',
+			// 'pitonInsertMedia',
 			'|',
 			'blockQuote',
 			'insertTable',
