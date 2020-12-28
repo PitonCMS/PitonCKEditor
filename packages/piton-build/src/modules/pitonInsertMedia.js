@@ -39,8 +39,7 @@ export default class PitonSelectMedia extends Plugin {
 				if (imageURL) {
 					editor.model.change(writer => {
 						const imageElement = writer.createElement('image', {
-							src: imageURL,
-							alt: "hi there"
+							src: imageURL
 						});
 
 						// Insert the image in the current selection location.

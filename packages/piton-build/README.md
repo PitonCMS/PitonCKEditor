@@ -1,4 +1,3 @@
-PitonCMS CKEditor 5 editor build
-========================================
+# PitonCMS CKEditor5 Custom Build
 
-See PitonCMS/ckeditor5/README for details.
+See main /README file
