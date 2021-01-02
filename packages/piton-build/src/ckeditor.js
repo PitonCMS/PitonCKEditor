@@ -110,6 +110,7 @@ ClassicEditor.defaultConfig = {
 			{ language: 'php', label: 'PHP' },
 			{ language: 'python', label: 'Python' },
 			{ language: 'ruby', label: 'Ruby' },
+			{ language: 'sql', label: 'SQL' },
 			{ language: 'sh', label: 'Terminal' },
 			{ language: 'typescript', label: 'TypeScript' },
 			{ language: 'xml', label: 'XML' },
