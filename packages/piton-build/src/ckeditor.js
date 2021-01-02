@@ -97,14 +97,24 @@ ClassicEditor.defaultConfig = {
 	},
 	codeBlock: {
 		languages: [
-			{language: 'html', label: 'HTML'},
-			{language: 'css', label: 'CSS'},
-			{language: 'php', label: 'PHP'},
-			{language: 'js', label: 'JS'},
-			{language: 'sql', label: 'SQL'},
-			{language: 'sh', label: 'Shell'},
-			],
-		},
+			{ language: 'plaintext', label: 'Plain text' }, // The default language.
+			{ language: 'c', label: 'C' },
+			{ language: 'cs', label: 'C#' },
+			{ language: 'cpp', label: 'C++' },
+			{ language: 'css', label: 'CSS' },
+			{ language: 'diff', label: 'Diff' },
+			{ language: 'html', label: 'HTML' },
+			{ language: 'java', label: 'Java' },
+			{ language: 'javascript', label: 'JavaScript' },
+			{ language: 'json', label: 'JSON' },
+			{ language: 'php', label: 'PHP' },
+			{ language: 'python', label: 'Python' },
+			{ language: 'ruby', label: 'Ruby' },
+			{ language: 'sh', label: 'Terminal' },
+			{ language: 'typescript', label: 'TypeScript' },
+			{ language: 'xml', label: 'XML' },
+		]
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en',
 };
